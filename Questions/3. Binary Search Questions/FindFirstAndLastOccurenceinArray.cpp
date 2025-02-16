@@ -32,8 +32,6 @@ int last_Occurence(int arr[], int size, int key){
     while(start<=end){
         int mid = start + (end-start)/2;
 
-        
-
         if (arr[mid]==key){
             ans = mid;
             start = mid+1;

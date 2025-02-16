@@ -1,62 +1,55 @@
+//PIVOT ARRAY
+
 #include<iostream>
 
 using namespace std;
 
-void print_array(int arr[], int size){
-    cout<<endl<<"Printing the array..."<<endl;
-
-    for (int i=0; i<size; i++){
-        cout<<arr[i];
+void printArray(int arr[], int size){
+    
+    cout<<"Printing the array..."<<endl;
+    
+    for (int i=0; i<=size-1; i++){
+        cout<<arr[i]<<" ";
     }
 
-    cout << endl<< endl;
+    cout<<endl<<endl;
 }
 
-void input_array(int arr[], int size){
-    for (int i = 0; i<size; i++){
-        cin>>arr[i];
+int pivotArray(int arr[], int size){
+
+    int s=1, e=size-2;
+
+    while(s<=e){
+        int mid = s + (e-s)/2;
+
+        cout<<endl<<"Start : "<<s<<"   ";
+        cout<<"End : "<<e<<"   ";
+        cout<<"Mid : "<<mid<<endl<<endl;
+
+        if (arr[mid-1]>arr[mid] && arr[mid]<arr[mid+1]){
+            return mid;
+        }
+        else if (arr[mid]>arr[0]){
+            s=mid+1;
+        }
+        else if (arr[mid]<arr[0]){
+            e=mid-1;
+        }
+
+        printArray(arr,6);
+
     }
 
-    print_array(arr,size);
-}
-
-void reverse_array(int arr[], int size){
-    cout<<"Reversing an array..."<<endl;
-    int start=0, end=size-1;
-    while (start<end){
-        swap(arr[start],arr[end]);
-        start++;
-        end--;
-    }
-
-    print_array(arr,size);
-}
-
-void swap_alternate(int arr[], int size){
-    cout<<"Swapping Alternate..."<<endl;
-    int start = 0, end = 1;
-    while (end<size){
-        swap(arr[start], arr[end]);
-        start+=2;
-        end+=2;
-    }
-
-    print_array(arr,size);
+    return -1;
 }
 
 int main(){
 
-    int arr1[5];
-    int arr2[6];
+    int arr[6]={7,8,9,1,2,3};
 
-    cout<<"Enter the 1st array : ";
-    input_array(arr1,5);
-    reverse_array(arr1,5);
-    swap_alternate(arr1,5);
+    printArray(arr, 6);
 
-    cout<<"Enter the 2nd array : ";
-    input_array(arr2,6);
-    reverse_array(arr2,6);
-    swap_alternate(arr2,6);
+    cout<<endl<<pivotArray(arr,6)<<endl;
+
 
 }
