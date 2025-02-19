@@ -39,6 +39,10 @@ int main(){
 
     int arr[5]={5,6,3,9,1};
 
+    cout<<"Input Array....";
+
+    printArray(arr,5);
+
     Selection_Sort(arr,5);
 
     printArray(arr,5);
