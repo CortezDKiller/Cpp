@@ -4,7 +4,7 @@ using namespace std;
 
 int sqrt(int n){
 
-    int s=1,e=(n/4)+1, ans; //Every solution has e=n but it can be taken as n/4 + 1 to reduce seacrh space.
+    int s=1,e=(n/4)+1, ans; //Every solution has e=n but it can be taken as n/4 + 1 to reduce search space.
 
     while (s<=e){
         int mid= s+(e-s)/2;
